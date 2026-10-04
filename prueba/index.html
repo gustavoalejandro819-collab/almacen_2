@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almacén Don Verde | Retiro en Local</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <!-- Font Awesome para los íconos de redes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="container navbar-content">
+            <div class="logo">
+                <i class="fa-solid fa-leaf text-accent"></i>
+                <span class="logo-title">Almacén<span class="text-accent">Verde</span></span>
+            </div>
+            
+            <div class="pickup-badge">
+                <i class="fa-solid fa-store"></i>
+                <span>Solo Retiro en Local</span>
+            </div>
+
+            <button id="cartBtn" class="cart-btn btn-push">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span class="cart-btn-text">Mi Pedido</span>
+                <span id="cartCount" class="cart-badge">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Banner Info Retiro -->
+    <section class="banner-pickup">
+        <div class="container banner-pickup-content">
+            <i class="fa-solid fa-circle-info"></i>
+            <div>
+                <strong>Modalidad Exclusiva: Take Away</strong>
+                <p>Armá tu carrito, confirmá el pedido y retiralo listo en nuestro local en 15 a 30 minutos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container main-layout">
+        
+        <!-- Categorías (Filtros Sidebar) -->
+        <aside class="sidebar">
+            <h3 class="sidebar-title"><i class="fa-solid fa-list text-accent"></i> Categorías</h3>
+            <ul id="categoryList" class="category-list">
+                <!-- Se cargan dinámicamente -->
+            </ul>
+        </aside>
+
+        <!-- Grilla de Productos -->
+        <section class="products-section">
+            <div class="products-header">
+                <h2 id="currentCategoryTitle">Todos los Productos</h2>
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="Buscar harinas, lácteos, carnes...">
+                </div>
+            </div>
+
+            <div id="productsGrid" class="products-grid">
+                <!-- Se cargan dinámicamente -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Sidebar Modal Carrito -->
+    <div id="cartModal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2><i class="fa-solid fa-basket-shopping text-accent"></i> Tu Pedido (Retiro)</h2>
+                <button id="closeCartBtn" class="close-btn">&times;</button>
+            </div>
+            <div id="cartItems" class="modal-body">
+                <!-- Items del carrito -->
+            </div>
+
+            <div class="modal-footer">
+                <div class="pickup-notice">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Retiras en: <strong>, Machado 2099</strong></span>
+                </div>
+
+                <div class="cart-summary">
+                    <span>Total a pagar:</span>
+                    <strong id="cartTotal">$0</strong>
+                </div>
+
+                <form id="checkoutForm" class="checkout-form">
+                    <div class="form-group">
+                        <label for="clientName">Nombre y Apellido</label>
+                        <input type="text" id="clientName" placeholder="Ej: Juan Pérez" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pickupTime">Horario estimado de retiro</label>
+                        <select id="pickupTime" required>
+                            <option value="Lo antes posible (15-30 min)">Lo antes posible (15-30 min)</option>
+                            <option value="En 1 hora">En 1 hora</option>
+                            <option value="En 2 horas">En 2 horas</option>
+                            <option value="Por la tarde (17:00 a 20:00 hs)">Por la tarde (17:00 a 20:00 hs)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="checkoutBtn" class="btn-primary btn-push w-full">
+                        <i class="fa-solid fa-check-circle"></i> Confirmar y Enviar Pedido
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Botón Flotante Redes Sociales -->
+    <div class="social-floating-container" id="socialFloating">
+        <div class="social-menu" id="socialMenu">
+            <a href="https://www.instagram.com/_gusss.17/" target="_blank" rel="noopener noreferrer" class="social-link instagram" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://whatsapp.com/channel/0029VbCiw6I90x31l09Tic2N" target="_blank" rel="noopener noreferrer" class="social-link whatsapp" title="Canal de WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="http://facebook.com/profile.php?id=100051231875318" target="_blank" rel="noopener noreferrer" class="social-link facebook" title="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+        </div>
+        <button class="social-toggle-btn btn-push" id="socialToggleBtn" aria-label="Redes Sociales">
+            <i class="fa-solid fa-share-nodes icon-main"></i>
+            <i class="fa-solid fa-xmark icon-close"></i>
+        </button>
+    </div>
+
+    <!-- Scripts ES Modules -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
